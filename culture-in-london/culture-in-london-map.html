@@ -1,0 +1,383 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>Display a map</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+  </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoidmlzaGFsa3VtYXJsb25kb24iLCJhIjoiY2pmZHVmdG84MXM1YTJxbXM2d3RmbnBnNSJ9.bYO0LW7BJr8pzbYThWOrdw';
+const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/vishalkumarlondon/cjtuadgrx0ado1fp7eew091vk',
+  center: [-0.128435, 51.506938],
+  zoom: 11.9
+});
+</script>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title> Culture & Airbnb in London </title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+
+<body>
+<style>
+    #map {
+        position: fixed;
+        width:60%;
+    }
+
+    #features {
+        width: 40%;
+        margin-left: 60%;
+        font-family: sans-serif;
+        overflow-y: scroll;
+        background-color: #fafafa;
+    }
+    section {
+        padding:  100px 30px;
+        line-height: 25px;
+        border-bottom: 1px solid #ddd;
+        opacity: 0.25;
+        font-size: 13px;
+    }
+    section.active {
+        opacity: 1;
+    }
+    section:last-child {
+        border-bottom: none;
+        margin-bottom: 100px;
+    }
+
+    #console {
+        position: absolute;
+        width: 200px;
+        height: 100px;
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: white;
+        z-index: 10000;
+        border-radius: 2.5px;
+        opacity: 0.9;
+    }
+
+    .session {
+            margin-bottom: 20px;
+        }
+
+    .row {
+            height: 10px;
+            width: 100%;
+        }
+
+    .colors {
+            background: linear-gradient(to right, #4572f7, #14dcff, #14dcff, #66fff7, #7ffaf0, #7ffaf0);
+            margin-bottom: 5px;
+        }
+
+    .label {
+            width: 14%;
+            font-size: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+    .map-overlay {
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            background-color: #fff;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+            border-radius: 3px;
+            position: absolute;
+            width: 25%;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            display: none;
+    }   
+</style>
+ 
+<div id='map'>
+
+    <div id='console'>        
+        <div class='session'>
+            <h3>AirBnB Prices per night</h3>
+              <div class='row colors'></div>
+              <div class='row labels'>
+                <div class='label'>£20</div>
+                <div class='label'>£50</div>
+                <div class='label'>£100</div>
+                <div class='label'>£150</div>
+                <div class='label'>£200</div>
+                <div class='label'>£250+</div>
+        </div>
+        </div>
+</div>
+
+</div>
+
+<div id='features'>
+    <section id='start' class='active'>
+        <h3>How Does Cultural Infrastucture Affect Airbnb Prices in London?</h3>
+            <p>This is the start.
+            <p>Data: <a href='https://www.london.gov.uk/what-we-do/arts-and-culture/cultural-infrastructure-toolbox/cultural-infrastructure-map' target="_blank">Culture Infrasturcture Map API</a> London, March 2019, and Airbnb listings in London.</p>
+            </p>
+    </section>
+
+    <!-- <section id='fitzrovia' class='active'> -->
+    <section id='fitzrovia'>
+        <h3>Fitzrovia</h3>
+            <p>Fitrovia is a a place with a lot of galleries. There are X number of commercial galleris (colour this in purple). The average Airbnb price in this LSAO is £XXX. There are also lots of restaurants.
+
+            [Maybe you coud get some data from Foursquare?]
+            </p>
+    </section>
+
+    <section id='mayfair'>
+        <h3>Mayfair</h3>
+            <p>Mayfair has lots of galleries.  There are X number of commercial galleris (colour this in purple. The average Airbnb price in this LSAO is £XXX. </p>
+    </section>
+
+    <section id='soho'>
+        <h3>Soho & Covent Garden</h3>
+            <p>Arthur Cadogan West was found dead, head crushed in on train tracks at Aldgate Station at 6AM Tuesday morning. West worked at Woolwich Arsenal on the Bruce-Partington submarine, a secret military project. Plans for the submarine had been stolen and seven of the ten missing papers were found in West's possession. Mycroft implores Sherlock to take the case and recover the three missing papers.</p>
+    </section>
+
+    <section id='gloucester'>
+        <h3>South Ken & Gloucester Road</h3>
+            <p>Mycroft responds to Sherlock's telegram and mentions several spies. Hugo Oberstein of 13 Caulfield Gardens catches Sherlock's eye. He heads to the nearby Gloucester Road station to investigate and learns that the windows of Caulfield Gardens open over rail tracks where trains stop frequently.</p>
+        </section>
+
+    <section id='shoreditch'>
+        <h3>Shoreditch</h3>
+            <p>Arthur Cadogan West was found dead, head crushed in on train tracks at Aldgate Station at 6AM Tuesday morning. West worked at Woolwich Arsenal on the Bruce-Partington submarine, a secret military project. Plans for the submarine had been stolen and seven of the ten missing papers were found in West's possession. Mycroft implores Sherlock to take the case and recover the three missing papers.</p>
+    </section>
+    
+    <section id='london-bridge'>
+        <h3>London Bridge</h3>
+            <p>Holmes and Watson's investigations take them across London. Sherlock deduces that West was murdered elsewhere, then moved to Aldgate Station to create the illusion that he was crushed on the tracks by a train. On their way to Woolwich Sherlock dispatches a telegram to Mycroft at London Bridge: "Send list of all foreign spies known to be in England, with full address."</p>
+    </section>
+
+    <section id='deptford'>
+        <h3>Deptford</h3>
+            <p>While investigating at Woolwich Arsenal Sherlock learns that West did not have the three keys&mdash;door, office, and safe&mdash;necessary to steal the papers. The train station clerk mentions seeing an agitated West boarding the 8:15 train to London Bridge. Sherlock suspects West of following someone who had access to the Woolwich chief's keyring with all three keys.</p>
+    </section>
+
+    <section id='camden'>
+        <h3>Camden</h3>
+            <p>Holmes deduces that the murderer placed West atop a stopped train at Caulfield Gardens. The train traveled to Aldgate Station before West's body finally toppled off. Backtracking to the criminal's apartment, Holmes finds a series of classified ads from <em>The Daily Telegraph</em> stashed away. All are under the name Pierrot: "Monday night after nine. Two taps. Only ourselves. Do not be so suspicious. Payment in hard cash when goods delivered."</p>
+    </section>
+
+    <section id='dalston'>
+        <h3>Dalston and Hackney</h3>
+            <p>Holmes and Watson head to The Daily Telegraph and place an ad to draw out the criminal. It reads: "To-night. Same hour. Same place. Two taps. Most vitally important. Your own safety at stake. Pierrot." The trap works and Holmes catches the criminal: Colonel Valentine Walter, the brother of Woolwich Arsenal's chief. He confesses to working for Hugo Oberstein to obtain the submarine plans in order to pay off his debts.</p>
+
+        <small id="citation">
+            Adapted from <a href='http://www.gutenberg.org/files/2346/2346-h/2346-h.htm'>Project Gutenberg</a>
+        </small>
+    </section>
+
+</div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoidmlzaGFsa3VtYXJsb25kb24iLCJhIjoiY2pmZHVmdG84MXM1YTJxbXM2d3RmbnBnNSJ9.bYO0LW7BJr8pzbYThWOrdw';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    // style: 'mapbox://styles/mapbox/streets-v11',
+    style: 'mapbox://styles/vishalkumarlondon/cjtuadgrx0ado1fp7eew091vk',
+    center: [-0.128435, 51.506938],
+    zoom: 10.9,
+    // bearing: 27,
+    // pitch: 45
+});
+
+
+var overlay = document.getElementById('map-overlay');
+ 
+// Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+closeButton: false
+});
+
+
+map.on('load', function() {
+// Insert the layer beneath any symbol layer.
+    var layers = map.getStyle().layers;
+ 
+    var labelLayerId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+        labelLayerId = layers[i].id;
+        break;
+    }
+}
+
+// ****************************************** //
+// The 'building' layer in the mapbox-streets vector source contains building-height
+// data from OpenStreetMap.
+map.addLayer({
+    'id': '3d-buildings',
+    'source': 'composite',
+    'source-layer': 'building',
+    'filter': ['==', 'extrude', 'true'],
+    'type': 'fill-extrusion',
+    'minzoom': 13,
+    'paint': {
+        'fill-extrusion-color': '#aaa',
+        
+        // use an 'interpolate' expression to add a smooth transition effect to the
+        // buildings as the user zooms in
+        'fill-extrusion-height': [
+        "interpolate", ["linear"], ["zoom"],
+        15, 0,
+        15.05, ["get", "height"]
+        ],
+        'fill-extrusion-base': [
+        "interpolate", ["linear"], ["zoom"],
+        15, 0,
+        15.05, ["get", "min_height"]
+        ],
+        'fill-extrusion-opacity': .5
+        }
+    }, labelLayerId);
+});
+// ****************************************** //
+
+
+
+
+
+
+
+// ****************************************** //
+// variables for the chapters 
+var chapters = {
+    'start': {
+        bearing: 0,
+        center: [-0.128435, 51.506938],
+        zoom: 11.9,
+        pitch: 0
+    },
+    'fitzrovia': {
+        bearing: 27,
+        center: [-0.138,51.519],
+        zoom: 14.9,
+        pitch: 45,
+        speed: 0.5
+    },
+    'mayfair': {
+        bearing: 20,
+        center: [-0.145,51.509],
+        zoom: 14.9,
+        pitch: 45,
+        speed: 0.5
+    },
+    'soho': {
+        bearing: 0,
+        center: [-0.126,51.511],
+        zoom: 14.9,
+        pitch: 45,
+        speed: 0.5
+    },
+    'gloucester': {
+        bearing: 45,
+        center: [-0.183,51.496],
+        zoom: 14.9,
+        pitch: 20,
+        speed: 0.5
+    },
+    'shoreditch': {
+        duration: 6000,
+        center: [-0.074,51.522],
+        bearing: 0,
+        zoom: 14.02,
+        pitch: 0
+    },
+    'london-bridge': {
+        bearing: 90,
+        center: [-0.100, 51.503],
+        zoom: 13.5,
+        speed: 0.6,
+        pitch: 40
+    },
+    'deptford': {
+        bearing: 90,
+        center: [-0.021,51.478],
+        zoom: 13.25
+    },
+    'camden': {
+        bearing: 180,
+        center: [-0.19684993, 51.5033856],
+        zoom: 12.3
+    },
+    'dalston': {
+        bearing: 90,
+        center: [-0.10669358, 51.51433123],
+        zoom: 17.3,
+        pitch: 40
+    }
+};
+
+// ****************************************** // 
+// On every scroll event, check which element is on screen
+window.onscroll = function() {
+    var chapterNames = Object.keys(chapters);
+
+    for (var i = 0; i < chapterNames.length; i++) {
+        var chapterName = chapterNames[i];
+
+        if (isElementOnScreen(chapterName)) {
+            setActiveChapter(chapterName);
+            break;
+        }
+    }
+};
+ 
+// ****************************************** //
+var activeChapterName = 'start';
+// var activeChapterName = 'fitzrovia';
+
+function setActiveChapter(chapterName) {
+    if (chapterName === activeChapterName) return;
+ 
+    map.flyTo(chapters[chapterName]);
+ 
+    document.getElementById(chapterName).setAttribute('class', 'active');
+    document.getElementById(activeChapterName).setAttribute('class', '');
+ 
+    activeChapterName = chapterName;
+}
+ 
+function isElementOnScreen(id) {
+    var element = document.getElementById(id);
+    var bounds = element.getBoundingClientRect();
+    return bounds.top < window.innerHeight && bounds.bottom > 20;
+}
+ 
+</script>
+ 
+</body>
+</html>
