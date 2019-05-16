@@ -1,34 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <meta charset='utf-8' />
-  <title>Display a map</title>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
-  <style>
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-  </style>
-</head>
-<body>
-
-<div id='map'></div>
-<script>
-mapboxgl.accessToken = 'pk.eyJ1IjoidmlzaGFsa3VtYXJsb25kb24iLCJhIjoiY2pmZHVmdG84MXM1YTJxbXM2d3RmbnBnNSJ9.bYO0LW7BJr8pzbYThWOrdw';
-const map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/vishalkumarlondon/cjtuadgrx0ado1fp7eew091vk',
-  center: [-0.128435, 51.506938],
-  zoom: 11.9
-});
-</script>
-
-</body>
-</html> -->
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,6 +19,18 @@ const map = new mapboxgl.Map({
         width:60%;
     }
 
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #2dc4b2;
+        }
+
+    b {
+        text-decoration: none;
+        font-weight: bold;
+        color: #294fc2;
+        } 
+
     #features {
         width: 40%;
         margin-left: 60%;
@@ -57,36 +38,74 @@ const map = new mapboxgl.Map({
         overflow-y: scroll;
         background-color: #fafafa;
     }
+
     section {
-        padding:  100px 30px;
+        padding:  100px 50px;
         line-height: 25px;
         border-bottom: 1px solid #ddd;
         opacity: 0.25;
-        font-size: 13px;
+        font-size: 15px;
     }
+
     section.active {
         opacity: 1;
     }
+    
     section:last-child {
         border-bottom: none;
         margin-bottom: 100px;
     }
 
-    #console {
+    #console1 {
         position: absolute;
         width: 200px;
         height: 100px;
         margin: 10px;
         padding: 10px 20px;
-        background-color: white;
+        background-color:rgba(255, 255, 255, 0.8);
         z-index: 10000;
         border-radius: 2.5px;
-        opacity: 0.9;
     }
 
-    .session {
+    .session1 {
             margin-bottom: 20px;
         }
+
+    #features1 {
+        position: absolute;
+        right: 0;
+        width: 250px;
+        height: 100px;
+        top: 0;
+        margin: 10px;
+        padding: 10px 20px;
+        background-color:rgba(255, 255, 255, 0.8);
+        z-index: 10000;
+        border-radius: 2.5px;
+    }
+
+    #legend {
+        position: absolute;
+        right: 0;
+        bottom: 20px;
+        width: 150px;
+        height: 100px;
+        margin: 10px;
+        padding: 10px 20px;
+        background-color:rgba(255, 255, 255, 0.8);
+        line-height: 20px;
+        margin-bottom: 20px;
+        z-index: 10000;
+        border-radius: 2.5px;
+    }
+
+    .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
 
     .row {
             height: 10px;
@@ -117,85 +136,133 @@ const map = new mapboxgl.Map({
             padding: 10px;
             display: none;
     }   
+    
 </style>
  
 <div id='map'>
 
-    <div id='console'>        
-        <div class='session'>
+    <!-- Top Left Legend -->
+    <div id='console1'>        
+        <div class='session1'>
             <h3>AirBnB Prices per night</h3>
-              <div class='row colors'></div>
+              <div class='row colors'>
+              </div>
+
               <div class='row labels'>
-                <div class='label'>£20</div>
-                <div class='label'>£50</div>
-                <div class='label'>£100</div>
-                <div class='label'>£150</div>
-                <div class='label'>£200</div>
-                <div class='label'>£250+</div>
+                  <div class='label'>£20</div>
+                  <div class='label'>£50</div>
+                  <div class='label'>£100</div>
+                  <div class='label'>£150</div>
+                  <div class='label'>£200</div>
+                  <div class='label'>£250+</div>
+                </div>
+         </div>
+    </div>
+    
+    <!-- Top Right Legend -->
+    <div class='session2' id='features1'>
+        <h3>Cultural Infrastructure</h3>
+        <div id='pd'>
+            <p>Hover over a cultural building!</p>
         </div>
-        </div>
+    </div>
+
+    <!-- Bottom Right Legend -->
+    <div class='session2' id='legend'></div>
+
+<!-- https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-2/ -->
+<!-- Look at this tutorial!! -->
 </div>
 
-</div>
 
+<!-- Div for all the text, called "features" -->
 <div id='features'>
     <section id='start' class='active'>
-        <h3>How Does Cultural Infrastucture Affect Airbnb Prices in London?</h3>
-            <p>This is the start.
-            <p>Data: <a href='https://www.london.gov.uk/what-we-do/arts-and-culture/cultural-infrastructure-toolbox/cultural-infrastructure-map' target="_blank">Culture Infrasturcture Map API</a> London, March 2019, and Airbnb listings in London.</p>
-            </p>
+        <h3>Does Cultural Infrastructure Affect Airbnb Prices in London?</h3>
+        <a p>This is a scroll-driven story. More is revealed as you scroll.</p> </a>
+            <!-- <p>Let me take you on a cultural journey around London!</p></a> -->
+        <br>
+            <p>Cultural Infrastructure is a term being used by the Greater London Authority (GLA) and the Mayor of London to describe all of London’s cultural assets: music venues, art galleries, museums, theatres, and much more. Cultural Infrastructures are "buildings, structures and spaces where culture is consumed and produced".</p>
+
+            <br>
+
+            <p>The cultural and creative industries are worth <a href = "https://www.london.gov.uk/what-we-do/arts-and-culture/cultural-infrastructure-toolbox/research-and-guidance/why-does-london-need-cultural-infrastructure#acc-i-56150" target="_blank"> £91.8 billion </a> to the UK economy - more than the automotive, life sciences, aerospace and oil and gas industries combined. London recognises the value of its cultural buildings, heritage and its creative people to the success of its economy and social activity. As such, the <a href = "https://www.london.gov.uk/sites/default/files/cultural_infrastructure_plan_online.pdf" target="_blank"> Cultural Infrastructure Plan</a> is a game-changing initiative set out in March 2019 by the GLA to “protect and grow London’s cultural facilities”.</p>
+
+            <br>
+
+            <p>One of the key breakthroughs of the initiative was the <a href = "https://www.london.gov.uk/what-we-do/arts-and-culture/cultural-infrastructure-toolbox/cultural-infrastructure-map" target="_blank"> Cultural Infrastructure Map</a>. The map provides openly available data about all cultural infrastructure in London and is helpful to policymakers, urban planners and architects, and it also allows researchers like me to investigate questions about London’s culture. I am using data from the map to power this visualization.</p>
+
+            <br>
+
+            <p>I am interested in researching the economic and social value of culture to London’s economy. For this visualization, we will scroll through eight different cultural and creative clusters in London and compare how the average Airbnb price listing per night compares to the rest of the Borough. I am using the price of Airbnb listings as a proxy for economic value; however, one may also include property price data from the Land Registry, consumer data from retail stores, or transport data from TfL. Elsewhere, I have used social media data to <a href = “https://www.vishalkumar.london/culture-in-cities/” target="_blank"> research</a> the social value of cultural events in London.</p> 
+
+            <br>
+
+            <p>My mission is to champion culture in cities by using data science and visualization, machine learning and computer vision, urban economics and social media analytics. Through my research, I hope to make the case for continued and sustained investment into the cultural and creative industries by arguing that cultural infrastructure feeds into the underlying value of our economy and societies. The concept of “value” is an <a href = “https://marianamazzucato.com/publications/books/value-of-everything/” target=”_blank”> increasingly contested </a> term in economics, therefore, in the future it is important to argue the case for culture and creativity not only with respects to price but also with respects to social cohesion, happiness, curiosity and innovation. </p>
+
+            <br>
+
+            <a p>Please keep scrolling!</p> </a>
+                <b p>I hope you enjoy the animation :) </p></b>
     </section>
 
-    <!-- <section id='fitzrovia' class='active'> -->
+    <section id='start' class='active'>
+        <p>This project has been made by <a href = "https://vishalkumar.london/" target="_blank">Vishal Kumar</a>, a Cultural Data Scientist at The Bartlett’s Centre for Advanced Spatial Analysis (CASA) at UCL who researches the economic and social value of culture in cities. Vishal is an Associate at Futurecity and a data science consultant for Waltham Forest Council for the London Borough of Culture programme.</p> 
+        <br>
+        <p>This is version 1 of the project and is currently only suitable for desktop. I will be updating the page regularly and all releases will be made public on social media <a href = "https://vishalkumar.london/follow" target="_blank">@vishalkumar.london</a>. Stay tuned! </p>
+
+    </section>
+
     <section id='fitzrovia'>
         <h3>Fitzrovia</h3>
-            <p>Fitrovia is a a place with a lot of galleries. There are X number of commercial galleris (colour this in purple). The average Airbnb price in this LSAO is £XXX. There are also lots of restaurants.
-
-            [Maybe you coud get some data from Foursquare?]
+            <p>Fitzrovia was a notable artistic and bohemian centre from a period dating roughly from the mid-1920s until the present day and was once home to such writers as Virginia Woolf, George Bernard Shaw and Arthur Rimbaud. Now it is characterised by its mixed-use of residential, business, retail, education and healthcare, with no single activity dominating.  The average Airbnb price in Fitzrovia in 2019 is <b>£188</b> a night, a <b>5.6%</b> increase from the year before and <b>38%</b> higher than the rest of the borough of Camden. There are 28 commercial galleries, one of the most densely populated in London, and the area is also well known for a wide variety of food and restaurants, especially on Charlotte Street.
             </p>
     </section>
 
     <section id='mayfair'>
         <h3>Mayfair</h3>
-            <p>Mayfair has lots of galleries.  There are X number of commercial galleris (colour this in purple. The average Airbnb price in this LSAO is £XXX. </p>
+            <p>Mayfair is one of the most affluent areas of London. Most of the largest and most famous commercial galleries have traditionally been based in Mayfair. In total, there are 66 commercial galleries, more than any district in London. Mayfair is also home to some of the most exclusive restaurants, hotels and members clubs in London, as well as being a district for luxury and fashion. The average Airbnb price in Mayfair is <b>£366</b> a night, the highest in London, a <b>35%</b> increase from the last year and <b>80%</b> higher than the rest of the borough of Westminster.</p>
     </section>
 
     <section id='soho'>
         <h3>Soho & Covent Garden</h3>
-            <p>Arthur Cadogan West was found dead, head crushed in on train tracks at Aldgate Station at 6AM Tuesday morning. West worked at Woolwich Arsenal on the Bruce-Partington submarine, a secret military project. Plans for the submarine had been stolen and seven of the ten missing papers were found in West's possession. Mycroft implores Sherlock to take the case and recover the three missing papers.</p>
+            <p>Soho is London's entertainment district & Covent Garden is a shopping and tourist site, at the intersection of the two we have one of the most vibrant places for music venues, theatres and film, nightclubs and restaurants. You can see this by the sea of green and yellow dots - hover over them to get more detail! It’s one of my most favourite parts of London and is packed with activity. It’s hard to tell what exactly is driving value here, but all sheer density of cultural activity makes it one of the most expensive places to get an Airbnb, The average Airbnb price in Soho & Covent Garden in 2019 is £247 a night, a 16% increase from the year before and 21% higher than the rest of the borough of Westminster.</p>
     </section>
 
     <section id='gloucester'>
         <h3>South Ken & Gloucester Road</h3>
-            <p>Mycroft responds to Sherlock's telegram and mentions several spies. Hugo Oberstein of 13 Caulfield Gardens catches Sherlock's eye. He heads to the nearby Gloucester Road station to investigate and learns that the windows of Caulfield Gardens open over rail tracks where trains stop frequently.</p>
+            <p>South Kensington & Gloucester Road is a cultural hub because it is home to the famous V&A Museum, Science Museum, National History Museum, Royal Albert Hall, the Royal College of Art and the Royal College of Music, as well as, being close to Hyde Park and Knightsbridge. Like Mayfair, South Ken is also one of the most affluent areas of London. The average Airbnb price in South Ken & Gloucester Road in 2019 is £268 a night, an 14% increase from the year before and 32% higher than the rest of the borough of Kensington and Chelsea. The cultural infrastructure is not densely packed but it certainly holds substantial weight.</p>
         </section>
 
     <section id='shoreditch'>
         <h3>Shoreditch</h3>
-            <p>Arthur Cadogan West was found dead, head crushed in on train tracks at Aldgate Station at 6AM Tuesday morning. West worked at Woolwich Arsenal on the Bruce-Partington submarine, a secret military project. Plans for the submarine had been stolen and seven of the ten missing papers were found in West's possession. Mycroft implores Sherlock to take the case and recover the three missing papers.</p>
+            <p>Shoreditch is a cool part of London.  If you’re visiting London you should definitely come here! In the 19th and early 20th centuries, Shoreditch was a centre of entertainment to rival the West End and boasted many theatres and music halls. Before that, it was home to the textile and furniture industry in the 17th century, however, these declined. Now it thrives off its variety of cultural activities, as you can see by the number of different coloured dots. The average Airbnb price in Shoreditch in 2019 is £133 a night, a 9% increase from the year before and a whopping 48% higher than the rest of the boroughs of Hackney and Tower Hamlets. You can clearly see a dense clustering of high Airbnb listings around the cultural infrastructure.</p>
     </section>
     
     <section id='london-bridge'>
         <h3>London Bridge</h3>
-            <p>Holmes and Watson's investigations take them across London. Sherlock deduces that West was murdered elsewhere, then moved to Aldgate Station to create the illusion that he was crushed on the tracks by a train. On their way to Woolwich Sherlock dispatches a telegram to Mycroft at London Bridge: "Send list of all foreign spies known to be in England, with full address."</p>
+            <p>The area from Southbank to London Bridge is listed as a specialist cluster zone for Art, Culture and Entertainment in the New London Plan. The South Bank is already significant arts and entertainment district. It has the London Eye, The Southbank Centre, Royal Festival Hall, Queen Elizabeth Hall, The Hayward Gallery, The Royal National Theatre, London IMAX super cinema and The Tate Modern. Soon the Illuminated River project will be taking place which will light up all the bridges on the Thames! The average Airbnb price in 2019 is £182 a night, an 25% increase from the year before and 77% higher than the rest of the borough of Southwark.</p>
     </section>
 
     <section id='deptford'>
         <h3>Deptford</h3>
-            <p>While investigating at Woolwich Arsenal Sherlock learns that West did not have the three keys&mdash;door, office, and safe&mdash;necessary to steal the papers. The train station clerk mentions seeing an agitated West boarding the 8:15 train to London Bridge. Sherlock suspects West of following someone who had access to the Woolwich chief's keyring with all three keys.</p>
-    </section>
-
-    <section id='camden'>
-        <h3>Camden</h3>
-            <p>Holmes deduces that the murderer placed West atop a stopped train at Caulfield Gardens. The train traveled to Aldgate Station before West's body finally toppled off. Backtracking to the criminal's apartment, Holmes finds a series of classified ads from <em>The Daily Telegraph</em> stashed away. All are under the name Pierrot: "Monday night after nine. Two taps. Only ourselves. Do not be so suspicious. Payment in hard cash when goods delivered."</p>
+            <p>Deptford is up and coming, mainly for its music scene. Creekside, a regeneration area beside Deptford Creek, is used for educational and artistic purposes, such as the Laban Dance Centre, and the Art in Perpetuity Trust (APT) gallery and studio space. A record label, Deptford Fun City Records set up in the late 1970s as an outlet for Deptford bands, and Steam Down a jazz collective also perform there. It’s also very close to Greenwich. Given the variety of culture, the Airbnb prices here are relatively cheap. The average Airbnb price in this LSAO in 2019 is £66 a night, an 0% increase from the year before and 1% higher than the rest of the borough of Lewisham. You can really get your money’s worth hanging around here!</p>
     </section>
 
     <section id='dalston'>
         <h3>Dalston and Hackney</h3>
-            <p>Holmes and Watson head to The Daily Telegraph and place an ad to draw out the criminal. It reads: "To-night. Same hour. Same place. Two taps. Most vitally important. Your own safety at stake. Pierrot." The trap works and Holmes catches the criminal: Colonel Valentine Walter, the brother of Woolwich Arsenal's chief. He confesses to working for Hugo Oberstein to obtain the submarine plans in order to pay off his debts.</p>
+            <p>Dalston is known for music, events and its nightlife. You can see this by all of the green dots! Its biggest festival to date began in 2015, Dalston Music Festival. Centred on Gillett Square and 8 clubs in the surrounding area, it was founded by Andrew Bunsell of Dalston Studios. Much like Deptford, Dalston and Hackney does not have many Airbnb rentals with daily prices above £200. However, it is an area of London is a place with a lot of galleries. The average Airbnb price in this LSAO in Dalston is £86 a night, an 4% increase from the year before and 2% below than the rest of the borough of Hackney. Again, another reasonable place to stay in London, but the area has been heavily criticised for gentrification.</p>
+    </section>
 
+    <section id='theend' class='active'>
+        <h3>The End</h3>
+            <p>The question “Does Cultural Infrastructure affect Airbnb prices?” is still unanswered by this data visualization and open to further investigation. In the future, I would love to incorporate more functionality and enriched set of data. </p>
+        <h4>Methodology</h4>
+            <p>Something about the Methodology. </p>
         <small id="citation">
-            Adapted from <a href='http://www.gutenberg.org/files/2346/2346-h/2346-h.htm'>Project Gutenberg</a>
+            Adapted from <a href='http://www.gutenberg.org/files/2346/2346-h/2346-h.htm'>Project Gutenberg.</a>
+
+            Data: <a href='https://www.london.gov.uk/what-we-do/arts-and-culture/cultural-infrastructure-toolbox/cultural-infrastructure-map' target="_blank">Culture Infrastructure Map API</a> London, March 2019, and Airbnb listings in London.
         </small>
     </section>
 
@@ -209,14 +276,48 @@ var map = new mapboxgl.Map({
     // style: 'mapbox://styles/mapbox/streets-v11',
     style: 'mapbox://styles/vishalkumarlondon/cjtuadgrx0ado1fp7eew091vk',
     center: [-0.128435, 51.506938],
-    zoom: 10.9,
+    zoom: 11.5,
     // bearing: 27,
     // pitch: 45
 });
 
-
 var overlay = document.getElementById('map-overlay');
- 
+
+
+// Legend Bottom Right
+var layers = ['Music', 'Commercial Galleries', 'Theatre', 'Public Museums', 'Fashion'];
+var colors = ['#97ea57', '#ea90db', '#fffa66', '#ffa10a', '#e60000'];
+
+for (i = 0; i < layers.length; i++) {
+    var layer = layers[i];
+    var color = colors[i];
+    var item = document.createElement('div');
+    var key = document.createElement('span');
+    key.className = 'legend-key';
+    key.style.backgroundColor = color;
+
+    var value = document.createElement('span');
+    value.innerHTML = layer;
+    item.appendChild(key);
+    item.appendChild(value);
+    legend.appendChild(item);
+}
+
+// Interacyuvity for legend top right
+map.on('mousemove', function(e) {
+  var states = map.queryRenderedFeatures(e.point, {layers: ['culture-infrastructure-map']});
+
+  if (states.length > 0) {
+    document.getElementById('pd').innerHTML = '<p><strong>' + states[0].properties.name + '</strong><strong>' + " is a " + states[0].properties.type + " in " + states[0].properties.ward_2018_name + '</strong></p>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover over a cultural building!</p>';
+  }
+});
+
+map.getCanvas().style.cursor = 'default';
+// Interacyuvity for legend top right
+
+
 // Create a popup, but don't add it to the map yet.
 var popup = new mapboxgl.Popup({
 closeButton: false
@@ -244,9 +345,9 @@ map.addLayer({
     'source-layer': 'building',
     'filter': ['==', 'extrude', 'true'],
     'type': 'fill-extrusion',
-    'minzoom': 13,
+    'minzoom': 12,
     'paint': {
-        'fill-extrusion-color': '#aaa',
+        'fill-extrusion-color': '#bababa',
         
         // use an 'interpolate' expression to add a smooth transition effect to the
         // buildings as the user zooms in
@@ -260,15 +361,45 @@ map.addLayer({
         15, 0,
         15.05, ["get", "min_height"]
         ],
-        'fill-extrusion-opacity': .5
+        'fill-extrusion-opacity': 0.8
         }
     }, labelLayerId);
 });
 // ****************************************** //
 
+// overlay //
+// overlay //
+// overlay //
+//https://jsfiddle.net/rasagy/sy0j1nqj/
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+  });
 
+function showPopup(e) {
+    // Updates the cursor to a hand (interactivity)
+    map.getCanvas().style.cursor = 'pointer';
+    // Show the popup at the coordinates with some data
+    popup.setLngLat(e.features[0].geometry.coordinates)
+      .setHTML(checkEmpty(e.features[0].properties.name))
+      .addTo(map);
+  }
 
+function hidePopup() {
+    map.getCanvas().style.cursor = '';
+    popup.remove();
+  }
 
+function checkEmpty(info) {
+    return (info) ? info : "No data";
+  }
+
+// CHANGE: Add layer names that need to be interactive
+map.on('mouseenter', 'culture-infrastructure-map', showPopup);
+map.on('mouseleave', 'culture-infrastructure-map', hidePopup);
+// overlay //
+// overlay //
+// overlay //
 
 
 
@@ -278,7 +409,7 @@ var chapters = {
     'start': {
         bearing: 0,
         center: [-0.128435, 51.506938],
-        zoom: 11.9,
+        zoom: 11.5,
         pitch: 0
     },
     'fitzrovia': {
@@ -328,16 +459,12 @@ var chapters = {
         center: [-0.021,51.478],
         zoom: 13.25
     },
-    'camden': {
-        bearing: 180,
-        center: [-0.19684993, 51.5033856],
-        zoom: 12.3
-    },
     'dalston': {
-        bearing: 90,
-        center: [-0.10669358, 51.51433123],
-        zoom: 17.3,
-        pitch: 40
+        duration: 6000,
+        bearing: -30,
+        center: [-0.059,51.544],
+        zoom: 13.5,
+        pitch: 20
     }
 };
 
