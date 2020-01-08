@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Final Words | A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.16.5 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Final Words | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Final Words | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie" />
+
+
+<meta name="date" content="2020-01-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="exploratory-data-analysis.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="load-data.html"><a href="load-data.html"><i class="fa fa-check"></i><b>3</b> Load Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="load-data.html"><a href="load-data.html#load-packages"><i class="fa fa-check"></i><b>3.1</b> Load packages</a></li>
+<li class="chapter" data-level="3.2" data-path="load-data.html"><a href="load-data.html#download-airbnb-data"><i class="fa fa-check"></i><b>3.2</b> Download Airbnb data</a></li>
+<li class="chapter" data-level="3.3" data-path="load-data.html"><a href="load-data.html#download-cultural-infrastructure-data"><i class="fa fa-check"></i><b>3.3</b> Download Cultural Infrastructure data</a></li>
+<li class="chapter" data-level="3.4" data-path="load-data.html"><a href="load-data.html#download-london-shapefile-data"><i class="fa fa-check"></i><b>3.4</b> Download London shapefile data</a></li>
+<li class="chapter" data-level="3.5" data-path="load-data.html"><a href="load-data.html#join-airbnb-data-with-lsoa-shapefile"><i class="fa fa-check"></i><b>3.5</b> Join Airbnb data with LSOA shapefile</a></li>
+<li class="chapter" data-level="3.6" data-path="load-data.html"><a href="load-data.html#join-culture-data-with-lsoa-shapefile"><i class="fa fa-check"></i><b>3.6</b> Join Culture data with LSOA shapefile</a></li>
+<li class="chapter" data-level="3.7" data-path="load-data.html"><a href="load-data.html#join-airbnb-culture-and-lsoa-shapefile-data"><i class="fa fa-check"></i><b>3.7</b> Join Airbnb, Culture and LSOA shapefile data</a></li>
+<li class="chapter" data-level="3.8" data-path="load-data.html"><a href="load-data.html#download-the-lsoa-profile-data"><i class="fa fa-check"></i><b>3.8</b> Download the LSOA profile data</a></li>
+<li class="chapter" data-level="3.9" data-path="load-data.html"><a href="load-data.html#join-lsoa-profile-data-to-the-rest"><i class="fa fa-check"></i><b>3.9</b> Join LSOA profile data to the rest</a></li>
+<li class="chapter" data-level="3.10" data-path="load-data.html"><a href="load-data.html#download-innerouter-london-boundaries"><i class="fa fa-check"></i><b>3.10</b> Download Inner/Outer London boundaries</a></li>
+<li class="chapter" data-level="3.11" data-path="load-data.html"><a href="load-data.html#clean-variables-before-analysis"><i class="fa fa-check"></i><b>3.11</b> Clean variables before analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>4</b> Exploratory Data Analysis</a><ul>
+<li class="chapter" data-level="4.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#airbnb-eda"><i class="fa fa-check"></i><b>4.1</b> Airbnb EDA</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#airbnb-freqency-distributions"><i class="fa fa-check"></i><b>4.1.1</b> Airbnb freqency distributions</a></li>
+<li class="chapter" data-level="4.1.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#airbnb-log-freqency-distributions"><i class="fa fa-check"></i><b>4.1.2</b> Airbnb log freqency distributions</a></li>
+<li class="chapter" data-level="4.1.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#airbnb-inner-vs-outer-london"><i class="fa fa-check"></i><b>4.1.3</b> Airbnb Inner vs Outer London</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#cultural-infrastructure-eda"><i class="fa fa-check"></i><b>4.2</b> Cultural infrastructure EDA</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#cultural-infrastructure-venues"><i class="fa fa-check"></i><b>4.2.1</b> Cultural infrastructure venues</a></li>
+<li class="chapter" data-level="4.2.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#cultural-infrastructure-ratings"><i class="fa fa-check"></i><b>4.2.2</b> Cultural infrastructure ratings</a></li>
+<li class="chapter" data-level="4.2.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#cultural-infrastructure-ratings-1"><i class="fa fa-check"></i><b>4.2.3</b> Cultural infrastructure ratings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="6" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>6</b> Literature</a></li>
+<li class="chapter" data-level="7" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>7</b> Methods</a></li>
+<li class="chapter" data-level="8" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>8</b> Applications</a><ul>
+<li class="chapter" data-level="8.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>8.1</b> Example one</a></li>
+<li class="chapter" data-level="8.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>8.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="final-words-1.html"><a href="final-words-1.html"><i class="fa fa-check"></i><b>9</b> Final Words</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="final-words" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Final Words</h1>
+<p>Now we are going to runa regression on</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#----load all the libraries needed</span>
+<span class="co"># load in libraries</span>
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(scales)
+<span class="kw">library</span>(lubridate)
+<span class="kw">library</span>(ggridges)
+<span class="kw">library</span>(gridExtra)
+
+<span class="co">#regression</span>
+<span class="kw">library</span>(corrplot)
+<span class="kw">library</span>(rgdal)
+<span class="kw">library</span>(spdep)
+<span class="kw">library</span>(car)
+
+<span class="co">#----data visualization packages - https://serialmentor.com/dataviz/geospatial-data.html</span>
+
+<span class="co">#install.packages(&quot;remotes&quot;)</span>
+<span class="co">#install.packages(&quot;devtools&quot;)</span>
+<span class="kw">library</span>(remotes)
+
+<span class="co">#install.packages(&quot;cowplot&quot;)</span>
+<span class="co">#devtools::install_github(&quot;wilkelab/cowplot&quot;)</span>
+<span class="kw">library</span>(cowplot)
+
+<span class="co">#install.packages(&quot;colorspace&quot;)</span>
+<span class="kw">library</span>(colorspace)
+
+<span class="co">#devtools::install_github(&quot;clauswilke/colorblindr&quot;)</span>
+<span class="co">#https://rdrr.io/github/clauswilke/dviz.supp/</span>
+<span class="co">#devtools::install_github(&quot;clauswilke/dviz.supp&quot;)</span>
+<span class="kw">library</span>(dviz.supp)
+
+<span class="kw">options</span>(<span class="dt">scipen =</span> <span class="dv">999</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#run a final OLS model</span>
+model_freq &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(<span class="st">`</span><span class="dt">airbnb_freq</span><span class="st">`</span>) ~<span class="st"> </span>
+<span class="st">                    `</span><span class="dt">bame_p</span><span class="st">`</span> +
+<span class="st">                    `</span><span class="dt">nonUK</span><span class="st">`</span> +
+<span class="st">                    `</span><span class="dt">education</span><span class="st">`</span> +
+<span class="st">                    `</span><span class="dt">income</span><span class="st">`</span> +
+<span class="st">                    `</span><span class="dt">house_mortg</span><span class="st">`</span> +
+<span class="st">                    `</span><span class="dt">house_price</span><span class="st">`</span> +
+<span class="st">                    `</span><span class="dt">culture_freq</span><span class="st">`</span> +
+<span class="st">                    `</span><span class="dt">culture_rating</span><span class="st">`</span>+
+<span class="st">                    `</span><span class="dt">InnerOuter</span><span class="st">`</span>,
+                  <span class="dt">data =</span> londonLSOAProfiles, <span class="dt">na.action=</span>na.exclude)
+
+<span class="kw">summary</span>(model_freq)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = log(airbnb_freq) ~ bame_p + nonUK + education + 
+##     income + house_mortg + house_price + culture_freq + culture_rating + 
+##     InnerOuter, data = londonLSOAProfiles, na.action = na.exclude)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.3974 -0.5181  0.0567  0.6118  2.4763 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)             3.632e+00  2.693e-01  13.484  &lt; 2e-16 ***
+## bame_p                 -1.060e-02  2.275e-03  -4.661 3.34e-06 ***
+## nonUK                   2.300e-02  3.030e-03   7.590 4.70e-14 ***
+## education               6.484e-02  2.816e-03  23.021  &lt; 2e-16 ***
+## income                 -5.983e-05  4.071e-06 -14.695  &lt; 2e-16 ***
+## house_mortg            -3.254e-02  3.042e-03 -10.698  &lt; 2e-16 ***
+## house_price             3.663e-07  8.408e-08   4.356 1.38e-05 ***
+## culture_freq            8.879e-03  7.881e-04  11.266  &lt; 2e-16 ***
+## culture_rating          1.259e-01  5.309e-02   2.371   0.0178 *  
+## InnerOuterOuter London -1.345e+00  5.373e-02 -25.038  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.9203 on 2204 degrees of freedom
+##   (2119 observations deleted due to missingness)
+## Multiple R-squared:  0.7398, Adjusted R-squared:  0.7388 
+## F-statistic: 696.4 on 9 and 2204 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#and for future use, write the residuals out to a column in your dataframe</span>
+
+londonLSOAProfiles$model_freq_resids &lt;-<span class="st"> </span><span class="kw">residuals</span>(model_freq)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># #https://stackoverflow.com/questions/6882709/how-do-i-deal-with-nas-in-residuals-in-a-regression-in-r</span>
+<span class="co"># #how to deal with residuals with NA - make use of the row names associated with the data frame provided as input to lm</span>
+<span class="co"># #londonLSOAProfiles[names(model_price$model_price_resids), &quot;residual&quot;] &lt; - model_price$residuals</span>
+<span class="co"># </span>
+<span class="co"># #use the boom library for residuals - https://stackoverflow.com/questions/17216358/eliminating-nas-from-a-ggplot</span>
+<span class="co"># library(broom)</span>
+<span class="co"># df &lt;- augment(model_freq)</span>
+
+londonLSOAProfiles %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">drop_na</span>(model_freq_resids) %&gt;%
+<span class="st">      </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span> model_freq_resids)) +
+<span class="st">      </span><span class="kw">geom_histogram</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">fill =</span> <span class="st">&quot;#5EB296&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;#4D4D4D&quot;</span>) +
+<span class="st">      </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma) +
+<span class="st">      </span><span class="kw">ggtitle</span>(<span class="st">&quot;RESIDUAL DISTRUBUTION&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;Residual distrubution of the Airbnb Price model&quot;</span>) +
+<span class="st">      </span><span class="kw">labs</span>(<span class="dt">x=</span> <span class="st">&quot;log(Airbnb Freq)&quot;</span>, <span class="dt">y=</span> <span class="st">&quot;Count&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vif</span>(model_freq)</code></pre></div>
+<pre><code>##         bame_p          nonUK      education         income    house_mortg 
+##       4.535196       3.985935       4.447229       6.350560       2.833953 
+##    house_price   culture_freq culture_rating     InnerOuter 
+##       2.762761       1.285302       1.028660       1.859964</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(model_freq)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-32-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-32-2.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-32-3.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-32-4.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#nona &lt;- londonLSOAProfiles[londonLSOAProfiles$model_freq_resids != 0]</span>
+
+<span class="co">#run durbin-watson test</span>
+<span class="kw">durbinWatsonTest</span>(model_freq$residuals)</code></pre></div>
+<pre><code>## [1] 1.397353</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sf)
+<span class="kw">library</span>(tmap)
+
+<span class="kw">tm_shape</span>(londonLSOAProfiles) +
+<span class="st">  </span><span class="kw">tm_polygons</span>(<span class="st">&quot;model_freq_resids&quot;</span>,
+              <span class="dt">palette =</span> <span class="st">&quot;RdYlBu&quot;</span>)</code></pre></div>
+<pre><code>## Warning: The shape londonLSOAProfiles is invalid. See sf::st_is_valid</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<!-- ```{r} -->
+<!-- #run a final OLS model -->
+<!-- model_price <- lm(log(`airbnb_price`) ~  -->
+<!--                     `bame_p` + -->
+<!--                     `nonUK` + -->
+<!--                     `education` + -->
+<!--                     `employees` + -->
+<!--                     `income` + -->
+<!--                     `house_mortg` + -->
+<!--                     `house_price` + -->
+<!--                     `culture_freq` + -->
+<!--                     `culture_rating`+ -->
+<!--                     `InnerOuter`, -->
+<!--                   data = londonLSOAProfiles, na.action=na.exclude) -->
+<!-- summary(model_price) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- df <- augment(model_price) -->
+<!-- df %>%  -->
+<!--   drop_na(.resid) %>% -->
+<!--       ggplot(aes(x= .resid)) + -->
+<!--       geom_histogram(alpha = 0.5, fill = "#5EB296", colour = "#4D4D4D") + -->
+<!--       scale_y_continuous(labels = comma) + -->
+<!--       ggtitle("RESIDUAL DISTRUBUTION", subtitle = "Residual distrubution of the Airbnb Price model") + -->
+<!--       labs(x= "log(Airbnb Freq)", y= "Count") -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- vif(model_price) -->
+<!-- ``` -->
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exploratory-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-regression.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
